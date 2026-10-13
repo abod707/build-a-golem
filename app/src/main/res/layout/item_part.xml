@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_card"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <!-- Color indicator pillar for element -->
+    <View
+        android:id="@+id/viewElementIndicator"
+        android:layout_width="6dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="12dp"
+        android:background="#FF9F1C" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPartName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Clay Hearth Core"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPartRarity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Artisan"
+                android:textColor="#FFD166"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPartElement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Element: Clay &amp; Earth"
+            android:textColor="#A09DB5"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvPartStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="+80 HP | +5 Armor | +5 Attack"
+            android:textColor="#06D6A0"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPartSpecial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Steady life pulse that gradually mends small cracks."
+            android:textColor="#CCC"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="8dp">
+
+        <Button
+            android:id="@+id/btnPartAction"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_gold_button"
+            android:text="EQUIP"
+            android:textColor="#12111A"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPartCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="150G 30C"
+            android:textColor="#FFD166"
+            android:textSize="10sp"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

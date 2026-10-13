@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/artificer_dark_bg"
+    android:orientation="vertical">
+
+    <!-- Top Header Bar with Resources -->
+    <LinearLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1B1926"
+        android:elevation="6dp"
+        android:orientation="vertical"
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:letterSpacing="0.05"
+                android:text="⚒ BUILD A GOLEM"
+                android:textColor="#FFD166"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnSettings"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_action_button"
+                android:text="⚙"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Resources Strip -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvResourceGold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🪙 250"
+                android:textColor="#FFD166"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvResourceClay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🧱 80"
+                android:textColor="#C27D38"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvResourceOre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔩 40"
+                android:textColor="#8D99AE"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvResourceCrystal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔮 15"
+                android:textColor="#E0AAFF"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Main Content Area: Tab Views -->
+    <FrameLayout
+        android:id="@+id/tabContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ================= TAB 1: WORKSHOP ================= -->
+        <ScrollView
+            android:id="@+id/layoutWorkshop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <!-- Interactive Workshop Golem Canvas -->
+                <com.artificer.buildagolem.ui.WorkshopView
+                    android:id="@+id/workshopView"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/bg_card" />
+
+                <!-- Pose Testing Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnTestPunch"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_action_button"
+                        android:text="🥊 Punch"
+                        android:textColor="@color/white"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnTestBlock"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_action_button"
+                        android:text="🛡 Block"
+                        android:textColor="@color/white"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/btnTestOverdrive"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_action_button"
+                        android:text="⚡ Overdrive"
+                        android:textColor="#FFD166"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Golem Name & Stats Overview Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvGolemName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Terra Titan"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnRenameGolem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_action_button"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="Rename"
+                            android:textColor="#FFD166"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvGolemStatsSummary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="HP: 500  |  Armor: 45  |  Attack: 58  |  Speed: 2.4"
+                        android:textColor="#06D6A0"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvGolemSynergies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Active Synergies: Earth Harmony (3+ parts)"
+                        android:textColor="#E0AAFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Part Slot Selector Buttons -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnSlotCore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_gold_button"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="❤ CORE"
+                            android:textColor="#12111A"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnSlotHead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_action_button"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="👁 HEAD"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btnSlotTorso"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_action_button"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="🛡 TORSO"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btnSlotArms"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/bg_action_button"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="⚔ ARMS"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btnSlotLegs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:background="@drawable/bg_action_button"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="🦵 LEGS"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Parts List Container -->
+                <LinearLayout
+                    android:id="@+id/containerPartsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ================= TAB 2: CRUCIBLE ================= -->
+        <ScrollView
+            android:id="@+id/layoutCrucible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.artificer.buildagolem.ui.CrucibleView
+                    android:id="@+id/crucibleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:background="@drawable/bg_card" />
+
+                <!-- Crucible Actions -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPumpBellows"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_action_button"
+                        android:text="💨 PUMP BELLOWS"
+                        android:textColor="#FF9F1C"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnStrikeAnvil"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gold_button"
+                        android:text="🔨 STRIKE ANVIL!"
+                        android:textColor="#12111A"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnStartForging"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_action_button"
+                    android:text="🔥 START FORGING SESSION (Costs 20 Clay, 10 Ore)"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Transmutation Alchemy Station -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚗ ALCHEMICAL TRANSMUTATION"
+                        android:textColor="#FFD166"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Transmute lower-tier elements into rare artificer components:"
+                        android:textColor="#A09DB5"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnTransmuteOre"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_action_button"
+                            android:text="30 Clay ➔ 15 Ore"
+                            android:textColor="@color/white"
+                            android:textSize="11sp" />
+
+                        <Button
+                            android:id="@+id/btnTransmuteCrystal"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_action_button"
+                            android:text="25 Ore ➔ 5 Crystal"
+                            android:textColor="#E0AAFF"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ================= TAB 3: ARENA / EXPEDITION ================= -->
+        <FrameLayout
+            android:id="@+id/layoutArena"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <!-- Arena Stage Selection -->
+            <ScrollView
+                android:id="@+id/containerStageSelect"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚔ EXPEDITIONS &amp; DEFENSE"
+                        android:textColor="#FFD166"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Command your golem into battle to safeguard the Alchemist Sanctum."
+                        android:textColor="#A09DB5"
+                        android:textSize="13sp" />
+
+                    <!-- Endless Survival Arena Card -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="♾ ENDLESS SIEGE ARENA"
+                            android:textColor="#EF476F"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvEndlessHighScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Personal High Score: 0"
+                            android:textColor="#FFD166"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btnDeployEndless"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_overdrive_button"
+                            android:text="ENTER ENDLESS SIEGE"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Campaign Stages Container -->
+                    <LinearLayout
+                        android:id="@+id/containerStagesList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- Active Combat Gameplay Overlay -->
+            <RelativeLayout
+                android:id="@+id/containerActiveBattle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <com.artificer.buildagolem.game.BattleView
+                    android:id="@+id/battleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- Top Exit Button -->
+                <Button
+                    android:id="@+id/btnExitCombat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/bg_action_button"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="✕ RETREAT"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+
+                <!-- Bottom Combat Touch Controls -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#DD12101B"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <!-- Actions Strip: Punch, Core Blast, Shield, Overdrive -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnCombatPunch"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_gold_button"
+                            android:text="🥊 PUNCH"
+                            android:textColor="#12111A"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnCombatCore"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_action_button"
+                            android:text="💥 CORE BLAST"
+                            android:textColor="#06D6A0"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnCombatShield"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_action_button"
+                            android:text="🛡 SHIELD"
+                            android:textColor="#118AB2"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/btnCombatOverdrive"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_overdrive_button"
+                            android:text="⚡ OVERDRIVE"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Movement Controls -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnMoveLeft"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_action_button"
+                            android:text="◀ MOVE LEFT"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btnMoveRight"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_action_button"
+                            android:text="MOVE RIGHT ▶"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </FrameLayout>
+
+        <!-- ================= TAB 4: CODEX & BESTIARY ================= -->
+        <ScrollView
+            android:id="@+id/layoutCodex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📜 ARTIFICER'S CODEX"
+                    android:textColor="#FFD166"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Lore of Golemcraft, Elemental Set Resonances, and Hostile Bestiary."
+                    android:textColor="#A09DB5"
+                    android:textSize="13sp" />
+
+                <!-- Synergy Guide Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✨ ELEMENTAL SET RESONANCES"
+                        android:textColor="#06D6A0"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Equipping 3 or more parts of matching element awakens deep ancient power:\n\n• Earth Harmony: +25% Max HP &amp; Passive Health Regeneration\n• Granite Bastion: +35% Armor &amp; Knockback Immunity\n• Steel Vanguard: +25% Physical Attack Strike Power\n• Infernal Fury: +30% Attack &amp; Retaliatory Fire Damage\n• Glacial Shroud: +20% Armor &amp; Slows Attacking Foes\n• Storm Catalyst: +30% Movement Speed &amp; Electric Stun Arcs\n• Cosmic Resonance: +15% HP, +20% Attack, Faster Ability Cooldowns"
+                        android:textColor="#DDD"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Bestiary Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="👹 BESTIARY OF CORRUPTIONS"
+                        android:textColor="#EF476F"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• Corrupted Imp: Agile swarming creatures that scurry quickly toward the sanctum.\n\n• Clockwork Beetle: Armored brass automata created during forgotten wars.\n\n• Magma Hound: Savage fiery beasts that charge at terrifying speed.\n\n• Void Shade: Mystic phantoms capable of hurling ranged dark orbs.\n\n• Ignis the Magma Colossus (Boss): Titanic fire lord whose earthquakes shake the foundations of Eldermount.\n\n• Aetherius Prime (Boss): Ancient sentinel constructed from pure cosmic crystal."
+                        android:textColor="#DDD"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#1B1926"
+        android:elevation="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/navWorkshop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="🛠 Workshop"
+            android:textColor="#FFD166"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/navCrucible"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="🔥 Crucible"
+            android:textColor="#A09DB5"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/navArena"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="⚔ Arena"
+            android:textColor="#A09DB5"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/navCodex"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="📜 Codex"
+            android:textColor="#A09DB5"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>

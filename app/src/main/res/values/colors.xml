@@ -1,0 +1,15 @@
+<resources>
+    <color name="artificer_dark_bg">#12111A</color>
+    <color name="artificer_surface">#1F1D2C</color>
+    <color name="artificer_card">#2A273C</color>
+    <color name="artificer_gold">#FFD166</color>
+    <color name="artificer_gold_dark">#D49B2E</color>
+    <color name="artificer_amber">#FF9F1C</color>
+    <color name="artificer_rune_cyan">#06D6A0</color>
+    <color name="artificer_arcane_blue">#118AB2</color>
+    <color name="artificer_crimson">#EF476F</color>
+    <color name="artificer_text_light">#F5F5FA</color>
+    <color name="artificer_text_muted">#A09DB5</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
